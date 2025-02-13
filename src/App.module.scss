@@ -1,0 +1,7 @@
+.tab {
+  margin-top: 1rem;
+  &__content {
+    display: flex;
+    gap: 30px;
+  }
+}

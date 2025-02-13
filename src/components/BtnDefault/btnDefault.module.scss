@@ -1,0 +1,24 @@
+.btn-default {
+  padding: 10px 30px;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
+  color: green;
+  background-color: white;
+  border: 1px solid green;
+  transition: opacity .3s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-default:hover {
+  opacity: 0.4;
+}
+
+.btn-default.active {
+  background-color: green;
+  color: white;
+}
+
+.btn-default.active:hover {
+  opacity: 1;
+}

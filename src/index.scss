@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@400;700&family=Titillium+Web&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.title-reset {
+  margin: 0;
+}
+
+
+.btn-reset {
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+}
+
+
+// .tab-swiper__slider .swiper-pagination-bullet-active {
+//   background-color: green;
+// }
+
+.tab-swiper__slider {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 10px;
+
+  .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    background-color: gray;
+    opacity: 0.5;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: green;
+    opacity: 1;
+  }
+}
