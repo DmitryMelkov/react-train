@@ -14,7 +14,14 @@ const TabPC = ({ url, title }) => {
   const { loading, data } = useFetchData(url);
   const swiperRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const totalSlides = data ? 5 : 0; // Общее количество слайдов, которое вы добавляете
+  const totalSlides = data ? 5 : 0;
+
+  const [count, setCount] = useState(10);
+  const inputEl = useRef(null);
+
+  const onButtonClick = () => {
+    inputEl.current.focus();
+  };
 
   const handleSlideChange = (swiper) => {
     setCurrentIndex(swiper.activeIndex);
@@ -73,10 +80,20 @@ const TabPC = ({ url, title }) => {
                   icon={<FaChevronRight />}
                   borderRadius={'50%'}
                   iconSize="20px"
-                  disabled={currentIndex === totalSlides - 1} // Проверяем, является ли текущий индекс последним
+                  disabled={currentIndex === totalSlides - 1}
                 ></BtnDefault>
               </div>
             </div>
+          </div>
+
+          {/* useRef */}
+          <input ref={inputEl} type="text" />
+          <button onClick={onButtonClick}>Установить фокус на поле ввода</button>
+
+          {/* useState */}
+          <div>
+            <p>Вы нажали {count} раз</p>
+            <button onClick={() => setCount(count + 1)}>Нажми на меня</button>
           </div>
         </>
       )}
