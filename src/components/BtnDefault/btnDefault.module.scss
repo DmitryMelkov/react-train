@@ -1,17 +1,38 @@
 .btn-default {
-  padding: 10px 30px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   font-size: 20px;
   line-height: 20px;
   font-weight: 400;
   color: green;
   background-color: white;
   border: 1px solid green;
-  transition: opacity .3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   cursor: pointer;
 }
 
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .btn-default:hover {
-  opacity: 0.4;
+  background-color: green;
+  color: white;
+}
+
+.btn-default:active {
+  background-color: green;
+  color: white;
+}
+
+.btn-default:focus {
+  background-color: green;
+  color: white;
 }
 
 .btn-default.active {
@@ -19,6 +40,13 @@
   color: white;
 }
 
-.btn-default.active:hover {
-  opacity: 1;
+.btn-default.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-default.active:hover,
+.btn-default.disabled:hover {
+  background-color: white;
+  color: green;
 }

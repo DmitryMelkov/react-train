@@ -6,9 +6,19 @@ import useFetchData from '../../hooks/useFetchData';
 import TableComponent from '../TableParams/TableParams';
 import styles from './TabPC.module.scss';
 import { Navigation, Pagination } from 'swiper/modules';
+import { useRef, useState } from 'react';
+import BtnDefault from '../BtnDefault/BtnDefault';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const TabPC = ({ url, title }) => {
   const { loading, data } = useFetchData(url);
+  const swiperRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const totalSlides = data ? 5 : 0; // Общее количество слайдов, которое вы добавляете
+
+  const handleSlideChange = (swiper) => {
+    setCurrentIndex(swiper.activeIndex);
+  };
 
   return (
     <div className={styles['tab-pc']}>
@@ -23,18 +33,16 @@ const TabPC = ({ url, title }) => {
           <div className={styles['tab-swiper']}>
             <div className={styles['tab-swiper__box']}>
               <Swiper
+                ref={swiperRef}
                 modules={[Pagination, Navigation]}
                 pagination={{
                   clickable: true,
                   dynamicBullets: true,
                 }}
-                navigation={{
-                  nextEl: `.${styles['swiper-button-next']}`,
-                  prevEl: `.${styles['swiper-button-prev']}`,
-                }}
-                className={styles['tab-swiper__slider']}
+                className="tab-swiper__slider"
                 slidesPerView={1}
                 spaceBetween={30}
+                onSlideChange={handleSlideChange}
               >
                 <SwiperSlide className={styles['tab-swiper__slider-slide']}>
                   <TableComponent title="Температуры" data={data?.temperatures} />
@@ -51,11 +59,23 @@ const TabPC = ({ url, title }) => {
                 <SwiperSlide className={styles['tab-swiper__slider-slide']}>
                   <TableComponent title="Горелка" data={data?.gorelka} />
                 </SwiperSlide>
-                <div className={styles['tab-swiper__navigation']}>
-                  <div className={`${styles['swiper-button-prev']} swiper-button-prev`}></div>
-                  <div className={`${styles['swiper-button-next']} swiper-button-next`}></div>
-                </div>
               </Swiper>
+              <div className={styles['tab-swiper__navigation']}>
+                <BtnDefault
+                  onClick={() => swiperRef.current.swiper.slidePrev()}
+                  icon={<FaChevronLeft />}
+                  borderRadius={'50%'}
+                  iconSize="20px"
+                  disabled={currentIndex === 0}
+                ></BtnDefault>
+                <BtnDefault
+                  onClick={() => swiperRef.current.swiper.slideNext()}
+                  icon={<FaChevronRight />}
+                  borderRadius={'50%'}
+                  iconSize="20px"
+                  disabled={currentIndex === totalSlides - 1} // Проверяем, является ли текущий индекс последним
+                ></BtnDefault>
+              </div>
             </div>
           </div>
         </>

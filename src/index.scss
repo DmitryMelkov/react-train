@@ -35,9 +35,6 @@ body {
 }
 
 
-// .tab-swiper__slider .swiper-pagination-bullet-active {
-//   background-color: green;
-// }
 
 .tab-swiper__slider {
   position: absolute;
@@ -46,8 +43,8 @@ body {
   bottom: 10px;
 
   .swiper-pagination-bullet {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     background-color: gray;
     opacity: 0.5;
   }

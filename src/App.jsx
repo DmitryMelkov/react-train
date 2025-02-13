@@ -16,7 +16,7 @@ function App() {
         {tab === 'ПК1' && (
           <div className={styles['tab__content']}>
             <TabPC url={'http://169.254.0.156:3002/api/vr1-data'} title={'ПК №1'} />
-            {/* <TabPC url={'http://169.254.0.156:3002/api/vr2-data'} title={'ПК №2'} /> */}
+            <TabPC url={'http://169.254.0.156:3002/api/vr2-data'} title={'ПК №2'} />
           </div>
         )}
         {tab === 'МПА2' && <div>МПА2 контент</div>}
