@@ -53,8 +53,22 @@
     display: flex;
     justify-content: space-between;
     position: absolute;
-    bottom: 1.5%;
+    bottom: 0;
     left: 37%;
     z-index: 1;
+  }
+}
+
+:global {
+  .tab-swiper__slider .swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    background-color: gray;
+    opacity: 0.5;
+  }
+
+  .tab-swiper__slider .swiper-pagination-bullet-active {
+    background-color: green;
+    opacity: 1;
   }
 }

@@ -36,21 +36,3 @@ body {
 
 
 
-.tab-swiper__slider {
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  bottom: 10px;
-
-  .swiper-pagination-bullet {
-    width: 14px;
-    height: 14px;
-    background-color: gray;
-    opacity: 0.5;
-  }
-
-  .swiper-pagination-bullet-active {
-    background-color: green;
-    opacity: 1;
-  }
-}
