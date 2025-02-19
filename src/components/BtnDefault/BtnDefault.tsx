@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './btnDefault.module.scss';
 
 interface BtnDefaultProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   isActive?: boolean;
   onClick?: () => void;
   icon?: React.ReactNode;
