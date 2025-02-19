@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const useFetchData = (url) => {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
+const useFetchData = (url: string) => {
+  const [loading, setLoading] = useState<boolean>(true);
+  const [data, setData] = useState<any>(null); 
 
   const fetchData = useCallback(async () => {
     try {

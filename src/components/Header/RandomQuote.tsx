@@ -3,7 +3,7 @@ import { quotes } from './dataQuote';
 import styles from './Header.module.scss';
 
 const RandomQuote = () => {
-  const [quote, setQuote] = useState('Случайная цитата');
+  const [quote, setQuote] = useState<string>('Случайная цитата');
 
 
   useEffect(() => {

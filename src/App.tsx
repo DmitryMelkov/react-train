@@ -1,17 +1,17 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header/Header';
 import TabBtns from './components/Tabs/TabBtns';
 import TabPC from './components/Tabs/TabPC';
 import styles from './App.module.scss';
 
-function App() {
-  const [tab, setTab] = useState('ПК1');
+const App: React.FC = () => {
+  const [tab, setTab] = useState<string>('ПК1');
 
   return (
     <div className="container">
       <Header />
       <div className={styles['tab']}>
-        <TabBtns active={tab} onChange={(current) => setTab(current)} />
+        <TabBtns active={tab} onChange={(current: string) => setTab(current)} />
 
         {tab === 'ПК1' && (
           <div className={styles['tab__content']}>

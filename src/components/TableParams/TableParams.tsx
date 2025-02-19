@@ -1,6 +1,11 @@
 import styles from './TableParams.module.scss';
 
-const TableComponent = ({ title, data }) => {
+interface TableComponentProps {
+  title: string; // Заголовок таблицы
+  data: Record<string, number | string> | null; // Данные таблицы, где ключ - строка, а значение - число или строка
+}
+
+const TableComponent: React.FC<TableComponentProps> = ({ title, data }) => {
   return (
     <>
       <table className={styles['table']}>
@@ -21,7 +26,7 @@ const TableComponent = ({ title, data }) => {
             ))
           ) : (
             <tr className={styles['table__tr']}>
-              <td colSpan="2">No data available</td>
+              <td colSpan={2}>No data available</td>
             </tr>
           )}
         </tbody>

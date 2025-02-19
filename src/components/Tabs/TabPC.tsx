@@ -1,3 +1,4 @@
+import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
@@ -6,24 +7,21 @@ import useFetchData from '../../hooks/useFetchData';
 import TableComponent from '../TableParams/TableParams';
 import styles from './TabPC.module.scss';
 import { Navigation, Pagination } from 'swiper/modules';
-import { useRef, useState } from 'react';
-import BtnDefault from '../BtnDefault/BtnDefault';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import BtnDefault from '../BtnDefault/BtnDefault';
 
-const TabPC = ({ url, title }) => {
+interface TabPCProps {
+  url: string;
+  title: string;
+}
+
+const TabPC: React.FC<TabPCProps> = ({ url, title }) => {
   const { loading, data } = useFetchData(url);
-  const swiperRef = useRef(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const swiperRef = useRef<any>(null); // Use 'any' or a more specific type if you have one
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
   const totalSlides = data ? 5 : 0;
 
-  const [count, setCount] = useState(10);
-  const inputEl = useRef(null);
-
-  const onButtonClick = () => {
-    inputEl.current.focus();
-  };
-
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: any) => {
     setCurrentIndex(swiper.activeIndex);
   };
 
@@ -74,26 +72,16 @@ const TabPC = ({ url, title }) => {
                   borderRadius={'50%'}
                   iconSize="20px"
                   disabled={currentIndex === 0}
-                ></BtnDefault>
+                />
                 <BtnDefault
                   onClick={() => swiperRef.current.swiper.slideNext()}
                   icon={<FaChevronRight />}
                   borderRadius={'50%'}
                   iconSize="20px"
                   disabled={currentIndex === totalSlides - 1}
-                ></BtnDefault>
+                />
               </div>
             </div>
-          </div>
-
-          {/* useRef */}
-          <input ref={inputEl} type="text" />
-          <button onClick={onButtonClick}>Установить фокус на поле ввода</button>
-
-          {/* useState */}
-          <div>
-            <p>Вы нажали {count} раз</p>
-            <button onClick={() => setCount(count + 1)}>Нажми на меня</button>
           </div>
         </>
       )}
