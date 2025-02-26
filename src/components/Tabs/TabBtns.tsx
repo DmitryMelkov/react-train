@@ -1,8 +1,8 @@
-import BtnDefault from "../BtnDefault/BtnDefault";
+import BtnDefault from '../BtnDefault/BtnDefault';
 
 interface TabBtnsProps {
   active: string;
-  onChange: (value: string) => void; 
+  onChange: (value: string) => void;
 }
 
 const TabBtns: React.FC<TabBtnsProps> = ({ active, onChange }) => {
@@ -16,6 +16,9 @@ const TabBtns: React.FC<TabBtnsProps> = ({ active, onChange }) => {
       </BtnDefault>
       <BtnDefault isActive={active === 'Сушилка1'} onClick={() => onChange('Сушилка1')}>
         Сушилка
+      </BtnDefault>
+      <BtnDefault isActive={active === 'Карточки товаров'} onClick={() => onChange('Карточки товаров')}>
+        Карточки товаров
       </BtnDefault>
     </div>
   );

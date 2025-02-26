@@ -6,6 +6,7 @@ import styles from './App.module.scss';
 import TabSushilka from './components/Tabs/TabSushilka';
 import { CounterProvider } from './hooks/CounterContext';
 import TabMpa from './components/Tabs/TabMpa';
+import ProductList from './components/Tabs/product/ProductList';
 
 const App: React.FC = () => {
   const [tab, setTab] = useState<string>('ПК1');
@@ -32,6 +33,7 @@ const App: React.FC = () => {
             <TabSushilka title={'Сушилка №1'} />
           </CounterProvider>
         )}
+        {tab === 'Карточки товаров' && <ProductList title={'Карточки товаров'} />}
       </div>
     </div>
   );
