@@ -20,6 +20,9 @@ const TabBtns: React.FC<TabBtnsProps> = ({ active, onChange }) => {
       <BtnDefault isActive={active === 'Карточки товаров'} onClick={() => onChange('Карточки товаров')}>
         Карточки товаров
       </BtnDefault>
+      <BtnDefault isActive={active === 'Поиск'} onClick={() => onChange('Поиск')}>
+        Поиск
+      </BtnDefault>
     </div>
   );
 };

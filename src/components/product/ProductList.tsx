@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import Product from './Product';
 import styles from './products.module.scss';
+import useNowDate from '../../hooks/useNowDate';
 
 interface ProductListProps {
   title: string;
 }
 
 const ProductList: React.FC<ProductListProps> = ({ title }) => {
+  const now = useNowDate();
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -45,7 +47,9 @@ const ProductList: React.FC<ProductListProps> = ({ title }) => {
   return (
     <div className={`${styles['products']}`}>
       <div className={'container'}>
-        <h1 className={`${styles['products__header']} title-reset`}>{title}</h1>
+        <h1 className={`${styles['products__header']} title-reset`}>
+          {title} <span>{now.toLocaleTimeString()}</span>
+        </h1>
 
         <ul className={`${styles['products__list']} list-reset`}>
           {products.map((product) => {

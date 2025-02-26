@@ -2,18 +2,10 @@ import styles from './Header.module.scss';
 import '../../index.scss';
 import { useEffect, useState } from 'react';
 import RandomQuote from './RandomQuote';
+import useNowDate from '../../hooks/useNowDate';
 
-const Header: React.FC = () => { 
-  const [now, setNow] = useState<Date>(new Date());
-
-  useEffect(() => {
-    const interval = setInterval(() => setNow(new Date()), 1000);
-
-    return () => {
-      clearInterval(interval);
-      console.log('cleaning...');
-    };
-  }, []);
+const Header: React.FC = () => {
+  const now = useNowDate();
 
   return (
     <div className={`${styles['header']}`}>

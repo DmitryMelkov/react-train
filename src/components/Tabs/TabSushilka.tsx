@@ -39,11 +39,11 @@ const TabSushilka: React.FC<TabSushilkaProps> = ({ title }) => {
   }, []);
 
   if (loading) {
-    <div>loading...</div>;
+    return <div>loading...</div>;
   }
 
   if (error) {
-    <div>error {error}</div>;
+    return <div>error {error}</div>;
   }
 
   return (

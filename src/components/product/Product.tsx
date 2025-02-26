@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './products.module.scss';
-import BtnDefault from '../../BtnDefault/BtnDefault';
+import BtnDefault from '../BtnDefault/BtnDefault';
 
 interface ProductProps {
   rating?: number;

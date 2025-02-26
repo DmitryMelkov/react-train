@@ -6,7 +6,9 @@ import styles from './App.module.scss';
 import TabSushilka from './components/Tabs/TabSushilka';
 import { CounterProvider } from './hooks/CounterContext';
 import TabMpa from './components/Tabs/TabMpa';
-import ProductList from './components/Tabs/product/ProductList';
+import ProductList from './components/product/ProductList';
+import SearchableList from './components/search/SearchableList';
+import { list } from './components/search/list';
 
 const App: React.FC = () => {
   const [tab, setTab] = useState<string>('ПК1');
@@ -34,6 +36,7 @@ const App: React.FC = () => {
           </CounterProvider>
         )}
         {tab === 'Карточки товаров' && <ProductList title={'Карточки товаров'} />}
+        {tab === 'Поиск' && <SearchableList title="Поиск" list={list} />}
       </div>
     </div>
   );

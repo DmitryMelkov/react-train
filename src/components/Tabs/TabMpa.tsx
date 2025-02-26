@@ -1,7 +1,6 @@
 import BtnDefault from '../BtnDefault/BtnDefault';
 import { useCounter } from '../../hooks/CounterContext';
 import { useEffect, useState } from 'react';
-import Product from './product/Product';
 
 interface TabSushilkaProps {
   title: string;
